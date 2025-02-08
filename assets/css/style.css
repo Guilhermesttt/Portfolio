@@ -334,7 +334,7 @@ img {
     left: 0;
     right: 0;
     width: 230px;
-    margin: 0 auto;
+    margin: 0 ;
     transition: transform .4s;
     border-radius: 10px;
 }
