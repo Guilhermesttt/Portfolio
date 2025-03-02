@@ -330,7 +330,7 @@ img {
 
 .new__img {
     position: absolute;
-    top: -2.5rem;
+    top: -1.5rem;
     left: 0;
     right: 0;
     width: 230px;
@@ -342,23 +342,51 @@ img {
 .new__title {
     font-size: var(--h2-font-size);
     text-align: center;
+    margin-top: -10px;
 }
 
 .new__card:nth-child(odd) {
     rotate: -5deg;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .new__card:nth-child(even) {
     justify-self: flex-end;
     rotate: 5deg;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.new__card:hover {
+    transform: scale(1.05) rotate(0deg); /* Aumento sutil e endireita */
+    box-shadow: 
+        0 0 20px rgba(0, 0, 0, 0.8),    /* Sombra preta forte */
+        0 0 40px var(--first-color-light); /* Mantém a variável, mas só uma camada extra */
+    animation: pulse 0.6s infinite alternate; /* Pulso mais rápido e seco */
 }
 
 .new__card:hover .new__img {
-    transform: translateY(-.5rem);
+    transform: translateY(-0.75rem); /* Movimento mais contido, sem rotação */
+    transition: transform 0.3s ease;
 }
 
 .new__card a:hover {
     text-decoration: underline var(--first-color);
+    color: var(--first-color-light); /* Cor mais neutra, sem glow */
+    transition: color 0.3s ease;
+}
+
+/* Animação keyframes para um pulso mais bruto */
+@keyframes pulse {
+    0% {
+        box-shadow: 
+            0 0 20px rgba(0, 0, 0, 0.8),
+            0 0 40px var(--first-color-light);
+    }
+    100% {
+        box-shadow: 
+            0 0 30px rgba(0, 0, 0, 1),
+            0 0 50px var(--first-color-light);
+    }
 }
 
 /*=============== EXPERIENCE ===============*/
@@ -375,9 +403,10 @@ img {
     padding: 5.75rem .75rem 1.25rem .75rem;
     border: 2px solid var(--first-color-light);
     border-radius: 1rem;
+    transition: transform .3s ease, box-shadow .3s ease;
 }
 
-.shop__img{
+.shop__img {
     position: absolute;
     top: -4.5rem;
     left: 0;
@@ -387,20 +416,45 @@ img {
     transition: transform .4s;
 }
 
-.shop__title{
+.shop__title {
     font-size: var(--small-font-size);
     font-weight: var(--font-semi-bold);
     margin-bottom: .5rem;
     margin-top: -2.9rem;
 }
 
-.shop__price{
+.shop__price {
     color: var(--title-color);
     font-weight: var(--font-semi-bold);
 }
 
-.shop__card:hover .shop__img{
-    transform:  translateY(-.5rem);
+/* Efeito de hover existente para a imagem */
+.shop__card:hover .shop__img {
+    transform: translateY(-.5rem);
+}
+
+/* Efeito de glow chamativo com hsl(93, 58%, 66%) e var(--first-color-light) */
+.shop__card:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 20px rgba(255, 105, 180, 0.8),           /* Rosa neon */
+        0 0 40px hsl(93, 58%, 66%),                  /* Substitui o roxo */
+        0 0 60px var(--first-color-light);           /* Usa a variável existente */
+    animation: glowPulse 1.5s infinite alternate;
+}
+
+/* Animação keyframes para o efeito pulsante */
+@keyframes glowPulse {
+    0% {
+        box-shadow: 
+            0 0 20px var(--first-color-light),
+            0 0 60px var(--first-color-light);
+    }
+    100% {
+        box-shadow: 
+            0 0 30px var(--first-color-light),
+            0 0 80px var(--first-color-light);
+    }
 }
 /*=============== ABOUT ===============*/
 .about__container{
@@ -523,6 +577,7 @@ a.footer__social-links:hover{
     margin-top: 3rem;
     text-align: center;
     font-size: var(--small-font-size);
+    margin-bottom: 5%;
 }
 
 /*=============== SCROLL BAR ===============*/
@@ -644,7 +699,7 @@ a.footer__social-links:hover{
     .message{
         width: 48vh;
         margin-top: -25px;
-        animation: digitando 2s steps(25), blink .8s infinite alternate;
+        animation: digitando 2s steps(27), blink .8s infinite alternate;
         white-space: nowrap;
         overflow: hidden;
         border-right: 2px solid;
@@ -739,15 +794,24 @@ a.footer__social-links:hover{
         transform:translate(-50%,-50%)
     }
     
-    @keyframes digitando{
-        from{
+    @keyframes digitando {
+        from {
             width: 0;
+        }
+        to {
+            width: 50rem;
         }
     }
     
-    @keyframes blink{
-        40%{
-            border-color: rgba(255, 255, 255, 0.2);
+    @keyframes blink {
+        0% {
+            border-color: currentColor;
+        }
+        50% {
+            border-color: rgba(0, 0, 0, 0.2); /* Fallback for light backgrounds */
+        }
+        100% {
+            border-color: currentColor;
         }
     }
 
@@ -864,9 +928,3 @@ a.footer__social-links:hover{
         right: 3rem;
     }
 }
-   
-
-   
-
-
-
