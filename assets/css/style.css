@@ -78,9 +78,6 @@ body {
   z-index: 0;
 }
 
-
-
-
 h1, h2, h3, h4 {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
@@ -151,7 +148,6 @@ body::before {
     50% { background-position: 100% 100%; }
     100% { background-position: 0% 0%; }
   }
-
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
@@ -247,18 +243,144 @@ body::before {
     position: fixed;
     top: 0;
     right: -100%;
-    background-color: hsla(228, 24%, 6%, .9);
-    backdrop-filter: blur(16px);
-    width: 80%;
-    height: 100%;
-    padding: 6rem 3rem 0;
-    transition: right var(--transition-medium);
+    background: linear-gradient(to bottom, hsla(228, 24%, 10%, .98), hsla(228, 24%, 6%, .98));
+    backdrop-filter: blur(20px);
+    width: 75%;
+    height: 93vh;
+    padding: 6rem 2rem 2rem;
+    transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     z-index: var(--z-fixed);
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
   }
 
   .nav__toggle {
     display: block;
+    font-size: 1.8rem;
+    color: var(--first-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+    background-color: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(131, 201, 74, 0.1);
+  }
+  
+  .nav__toggle:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(131, 201, 74, 0.2);
+  }
+  
+  .nav__close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--first-color);
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    padding: 0.4rem;
+    backdrop-filter: blur(4px);
+    transition: all var(--transition-fast);
+  }
+  
+  .nav__close:hover {
+    transform: rotate(90deg);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    padding-left: 0.5rem;
+  }
+  
+  .nav__item {
+    position: relative;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.4s ease;
+  }
+  
+  /* Animação de entrada para os itens do menu */
+  .show-menu .nav__item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Atraso da animação para cada item */
+  .show-menu .nav__item:nth-child(1) { transition-delay: 0.1s; }
+  .show-menu .nav__item:nth-child(2) { transition-delay: 0.2s; }
+  .show-menu .nav__item:nth-child(3) { transition-delay: 0.3s; }
+  .show-menu .nav__item:nth-child(4) { transition-delay: 0.4s; }
+  .show-menu .nav__item:nth-child(5) { transition-delay: 0.5s; }
+  
+  .nav__link {
+    font-size: 1.2rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    width: 100%;
+    display: block;
+    font-weight: var(--font-semi-bold);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .nav__link:hover, 
+  .nav__link.active-link {
+    background-color: rgba(131, 201, 74, 0.1);
+    color: var(--first-color);
+    padding-left: 1.5rem;
+  }
+  
+  .nav__link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--first-color);
+    transform: translateY(-50%);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+  
+  .nav__link:hover::before,
+  .nav__link.active-link::before {
+    width: 8px;
+  }
+}
+
+/* Ajuste específico para dispositivos móveis pequenos */
+@media screen and (max-width: 480px) {
+  .nav__menu {
+    width: 85%;
+    padding: 5rem 1.5rem 2rem;
+  }
+  
+  .nav__toggle {
     font-size: 1.5rem;
+    padding: 0.4rem;
+  }
+  
+  .nav__close {
+    font-size: 1.5rem;
+    top: 1rem;
+    right: 1.25rem;
+  }
+  
+  .nav__list {
+    row-gap: 2rem;
+  }
+  
+  .nav__link {
+    font-size: 1.1rem;
+    padding: 0.6rem 0.8rem;
   }
 }
 
@@ -327,79 +449,160 @@ body::before {
 
 /*=============== HOME ===============*/
 .home__container {
-  padding-top: 2rem;
-  row-gap: 2rem;
-  position: relative;
-}
-
-.home__img {
-  width: min(270px, 90%);
-  filter: drop-shadow(var(--shadow-img));
-  justify-self: center;
-  margin-right: 10rem;
-  transition: transform var(--transition-medium);
-}
-
-.home__img:hover {
-  transform: translateY(-10px);
+    display: flex;
+    flex-direction: column; /* Muda para coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    padding: 20px; /* Adiciona um espaçamento interno */
 }
 
 .home__data {
-  text-align: center;
+    max-width: 600px; /* Limita a largura do texto */
+    text-align: center; /* Centraliza o texto dentro do contêiner */
 }
 
-.home__title {
-  font-size: var(--biggest-font-size);
-  font-weight: var(--font-bold);
-  margin-bottom: 1rem;
-  background: linear-gradient(to right, var(--title-color), var(--first-color));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.home__role {
+    font-size: 3.2rem; /* Tamanho do título */
+    position: relative;
+    overflow: hidden; /* Para esconder o que está fora do título */
+    color: white ; /* Cor verde */
+}
+
+.home__name {
+  font-size: 3.2rem; 
+  display: inline-block;
+  animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite; /* Animação original */
   white-space: nowrap; 
-  text-align: center;
-  margin-bottom: 5rem;
-  
+  overflow: hidden; 
+  color: var(--first-color);
+  border-right: 2px solid white; 
+  margin-bottom: -15px; /* Espaçamento abaixo do nome */
+}
+
+/* Adicione esta regra para dispositivos móveis */
+@media screen and (max-width: 768px) {
+  .home__name {
+      font-size: 1.8rem;
+      white-space: nowrap; /* Mantém o texto em uma única linha para o efeito de digitação */
+      overflow: hidden;
+      text-align: center;
+      border-right: 2px solid white;
+      width: 100%; /* Width based on approximate character count */
+      margin: 0 auto 10px; /* Centers horizontally with bottom margin */
+      animation: typing-mobile 3s steps(16, end), blink-caret 0.75s step-end infinite;
+  }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Animação de digitação específica para mobile */
+@keyframes typing-mobile {
+    from {
+        width: 0;
+    }
+    to {
+        width: 16ch; /* Corresponde ao valor definido no .home__name */
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: white;
+    }
 }
 
 .home__description {
-  margin-bottom: 3rem;
-  max-width: 600px;
-  margin-inline: auto;
+    font-size: 0,8rem; /* Tamanho da descrição */
+    margin-bottom: 20px; /* Espaçamento abaixo da descrição */
 }
 
-.home__buttons {
-    display: flex;
-    justify-content: center; /* Centraliza sempre */
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    width: 100%;
+.animated-button {
+    margin-top: 10px; /* Espaçamento acima do botão */
+    width: 100%; /* Faz o botão ocupar toda a largura disponível */
+    max-width: 280px; /* Limita a largura máxima do botão */
+    justify-content: center; /* Centraliza o conteúdo do botão */
+}
+
+.animated-button:hover {
+    background-color: #83c94a; /* Cor do botão ao passar o mouse */
+}
+
+/* Ajustes para desktop */
+@media screen and (min-width: 992px) {
+  .home__container {
+    flex-direction: row; /* Muda para linha em telas maiores */
+    justify-content: space-between; /* Espaça os itens igualmente */
+    align-items: center; /* Alinha os itens verticalmente */
+    max-width: 1200px; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza o container */
+    gap: 1rem; /* Reduz o espaçamento entre imagem e texto */
+    margin-bottom: 10rem;
+    margin-top: 4rem;
   }
 
-  .highlight-name {
-    background: linear-gradient(90deg, 
-        var(--first-color), 
-        var(--white-color), 
-        var(--first-color));
-    background-size: 200% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: shine 3s linear infinite;
-    text-shadow: 0 0 10px rgba(147, 54%, 54%, 0.3);
+  .home__img {
+    filter: drop-shadow(var(--shadow-img));
+    max-width: 480px; 
+    margin-bottom: 0; /* Remove a margem inferior */
+  }
 }
 
-@keyframes shine {
-    0% { background-position: 0% center; }
-    100% { background-position: 200% center; }
-} 
+/* Ajuste fino para telas muito grandes */
+@media screen and (min-width: 1400px) {
+  .home__container {
+    max-width: 1300px;
+  }
+  
+  .home__img {
+    margin-left: -4rem;
+  }
+}
+
+/* Ajustes para tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .home__container {
+    flex-direction: column;
+    gap: 3rem;
+  text-align: center;
+  }
+
+  .home__data {
+    align-items: center;
+    text-align: center;
+  }
+
+  .home__img {
+    max-width: 350px;
+    margin-left: 0;
+  }
+}
+
+/* Botão responsivo */
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center; /* Alterado de "left" para "center" */
+  gap: 4px;
+  padding: 1rem 1.5rem; /* Reduzido para mobile */
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  /* Restante das propriedades permanecem iguais */
+}
 
 /* Animated Button */
 .animated-button {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 4px;
   padding: 1rem 2.25rem;
   border: 4px solid transparent;
@@ -535,6 +738,7 @@ body::before {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    margin-bottom: 5rem;
   }
   
   .projects__header {
@@ -794,6 +998,8 @@ body::before {
       margin-bottom: 0;
       order: -1; /* Coloca a imagem primeiro no mobile */
     }
+
+    
   }
   
   @media screen and (min-width: 992px) {
@@ -928,10 +1134,11 @@ body::before {
   row-gap: 2rem;
 }
 
-.about__img{
+.about__img {
   width: 270px;
   filter: drop-shadow(var(--shadow-img));
   justify-self: center;
+  margin-bottom: 1.5rem;
 }
 
 .about__list{
@@ -1130,7 +1337,8 @@ a.footer__social-links:hover{
   }
 
   .home_title{
-    font-size: 2rem;
+    font-size: var(--h1-font-size);
+    margin-right:  1rem;
   }
 
   .home__buttons{
@@ -1190,7 +1398,7 @@ a.footer__social-links:hover{
   }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 480px){
   .nav__menu{
     width: 50%;
   }
@@ -1412,4 +1620,37 @@ a.footer__social-links:hover{
   .scrollup {
     right: 3rem;
   }
+}
+
+/* Ajustes para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    .home__title {
+        font-size: 2rem; /* Reduz o tamanho do título */
+        margin-bottom: 5px; /* Ajusta o espaçamento abaixo do título */
+    }
+
+    .home__name {
+        font-size: 1.8rem; /* Reduz o tamanho do texto do nome */
+        white-space: normal; /* Permite que o texto quebre em várias linhas */
+        overflow: hidden; /* Esconde o texto que ultrapassa o contêiner */
+        text-align: center; /* Centraliza o texto */
+        border-right: 2px solid white; /* Mantém o cursor visível */
+        animation: blink-caret 0.75s step-end infinite; /* Mantém a animação do cursor */
+        margin-bottom: 10px; /* Espaçamento adequado */
+    }
+
+    .home__role {
+        font-size: 1.5rem; /* Reduz o tamanho do texto do papel */
+        color: white; /* Mantém a cor do texto */
+        margin-bottom: 10px; /* Ajusta o espaçamento abaixo do papel */
+    }
+
+    .home__description {
+        font-size: 0.9rem; /* Ajusta o tamanho da descrição */
+        margin-bottom: 15px; /* Ajusta o espaçamento abaixo da descrição */
+    }
+
+    .home__container {
+        padding: 10px; /* Reduz o espaçamento interno do contêiner */
+    }
 }
