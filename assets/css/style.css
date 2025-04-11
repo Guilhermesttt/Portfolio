@@ -74,7 +74,12 @@ body {
   line-height: 1.6;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+  z-index: 0;
 }
+
+
+
 
 h1, h2, h3, h4 {
   color: var(--title-color);
@@ -99,11 +104,65 @@ img {
   object-fit: cover;
 }
 
+/*=============== DYNAMIC BACKGROUND ===============*/
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, 
+                var(--body-color) 0%, 
+                hsl(228, 6%, 10%) 50%, 
+                var(--body-color) 100%);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    opacity: 0.9;
+  }
+  
+  /* Bolhas flutuantes */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+      radial-gradient(circle at 20% 30%, var(--first-color-light) 0%, transparent 15%),
+      radial-gradient(circle at 80% 70%, var(--first-color) 0%, transparent 15%),
+      radial-gradient(circle at 40% 80%, var(--first-color-alt) 0%, transparent 15%);
+    background-size: 200% 200%;
+    animation: floatBubbles 25s linear infinite;
+    opacity: 0.15;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes floatBubbles {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: min(1120px, 90%);
   margin-inline: auto;
   padding-inline: 1.5rem;
+   background-color: rgba(228, 6%, 12%, 0.7); /* var(--container-color) com transparência */
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem auto;
 }
 
 .grid {
@@ -277,6 +336,7 @@ img {
   width: min(270px, 90%);
   filter: drop-shadow(var(--shadow-img));
   justify-self: center;
+  margin-right: 10rem;
   transition: transform var(--transition-medium);
 }
 
@@ -296,6 +356,10 @@ img {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  white-space: nowrap; 
+  text-align: center;
+  margin-bottom: 5rem;
+  
 }
 
 .home__description {
@@ -312,6 +376,24 @@ img {
     gap: 1rem;
     width: 100%;
   }
+
+  .highlight-name {
+    background: linear-gradient(90deg, 
+        var(--first-color), 
+        var(--white-color), 
+        var(--first-color));
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 3s linear infinite;
+    text-shadow: 0 0 10px rgba(147, 54%, 54%, 0.3);
+}
+
+@keyframes shine {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+} 
 
 /* Animated Button */
 .animated-button {
@@ -510,56 +592,75 @@ img {
     margin-bottom: 1rem;
     color: var(--title-color);
   }
+
+  /* =============== PROJECT LINK EFFECT =============== */
+  .project__link {
+    position: relative;
+    color: var(--first-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.project__link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--first-color);
+    transition: width 0.3s ease;
+}
+
+.project__link:hover {
+    color: var(--first-color-light);
+}
+
+.project__link:hover::after {
+    width: 100%;
+}
   
-  /*=============== PROJECTS SECTION - UPDATED ICONS ===============*/
+/*=============== PROJECTS SECTION - UPDATED ICONS ===============*/
 .tech-icons {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-  }
-  
-  /* Ícones inicialmente em escala de cinza */
-  .tech-icons i {
-    color: #888; /* Cor cinza para estado normal */
-    transition: all var(--transition-fast);
-    filter: grayscale(100%);
-    opacity: 0.7;
-  }
-  
-  /* Quando o card do projeto recebe hover, os ícones ficam coloridos */
-  .project__card:hover .tech-icons i {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: translateY(-5px) scale(1.2);
-  }
-  
-  /* Cores específicas para cada ícone */
-  .project__card:hover .tech-icons .fa-html5 {
-    color: #e34c26; /* Laranja do HTML5 */
-  }
-  
-  .project__card:hover .tech-icons .fa-css3-alt {
-    color: #264de4; /* Azul do CSS3 */
-  }
-  
-  .project__card:hover .tech-icons .fa-js {
-    color: #f0db4f; /* Amarelo do JavaScript */
-  }
-  
-  /* Adicionando pequena animação nos ícones */
-  @keyframes iconBounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
-  }
-  
-  .project__card:hover .tech-icons i {
-    animation: iconBounce 0.6s ease;
-  }
+  align-items: left;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+}
+
+/* Estado normal dos ícones */
+.tech-icons i {
+  transition: all var(--transition-medium) ease-out;
+  opacity: 0.8;
+  transform: scale(1);
+  filter: brightness(0.8);
+}
+
+/* Efeito hover individual para cada ícone */
+.tech-icons i:hover {
+  opacity: 1;
+  transform: scale(1.25);
+  filter: brightness(1.2) drop-shadow(0 0 4px currentColor);
+  transition: all 0.2s ease-in;
+}
+
+/* Cores específicas para cada tecnologia */
+.tech-icons .fa-html5 { color: #e34c26; } /* Laranja HTML5 */
+.tech-icons .fa-css3-alt { color: #264de4; } /* Azul CSS3 */
+.tech-icons .fa-js { color: #f0db4f; } /* Amarelo JavaScript */
+.tech-icons .fa-react { color: #61dafb; } /* Azul React */
+.tech-icons .fa-node-js { color: #68a063; } /* Verde Node.js */
+
+/* Efeito de pulsação sutil durante o hover */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.tech-icons i:hover {
+  animation: pulse 1.5s infinite;
+}
   
   /*=============== SKILLS SECTION ===============*/
   .skills__grid {
