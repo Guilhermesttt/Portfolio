@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Guilherme Sant'ana, desenvolvedor front-end com habilidades em HTML, CSS, JavaScript e Python">
+    <meta name="keywords" content="portfolio, frontend, desenvolvedor, HTML, CSS, JavaScript">
+    <meta name="author" content="Guilherme Sant'ana">
+    
     <link rel="shortcut icon" href="assets/img/icons8-portfolio-24.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Welcome To My Portfolio</title>
+    
+    <title>Guilherme Sant'ana | Frontend Developer Portfolio</title>
 </head>
 <body>
+    <!-- Header/Navigation -->
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="#" class="nav__logo">
-                <i class="ri-cactus-line"></i> Guilherme Sant'ana
+            <a href="#" class="nav__logo" aria-label="Home">
+                <i class="ri-cactus-line" aria-hidden="true"></i> Guilherme Sant'ana
             </a>
 
             <div class="nav__menu" id="nav-menu">
@@ -21,180 +28,302 @@
                         <a href="#home" class="nav__link active-link">Home</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#new" class="nav__link">Projects</a>
+                        <a href="#projects" class="nav__link">Projects</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#shop" class="nav__link">Experiences</a>
+                        <a href="#skills" class="nav__link">Skills</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#care" class="nav__link">About</a>
+                        <a href="#about" class="nav__link">About</a>
                     </li>
                     <li class="nav__item">
                         <a href="#contact" class="nav__link">Contact</a>
                     </li>
                 </ul>
-                <div class="nav__close" id="nav-close">
-                    <i class="ri-close-line"></i>
-                </div>
+                
+                <button class="nav__close" id="nav-close" aria-label="Close menu">
+                    <i class="ri-close-line" aria-hidden="true"></i>
+                </button>
             </div>
 
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="ri-menu-line"></i>
-            </div>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Open menu">
+                <i class="ri-menu-line" aria-hidden="true"></i>
+            </button>
         </nav>
     </header>
 
     <main class="main">
+        <!-- Hero Section -->
         <section class="home section" id="home">
             <div class="home__container container grid">
-                <img src="assets/img/Foto_portifolio.png" alt="Guilherme Sant'ana" class="home__img">
+                <img src="assets/img/Foto_portifolio.png" alt="Guilherme Sant'ana" class="home__img" loading="lazy">
+                
                 <div class="home__data">
                     <h1 class="home__title">
-                        <span class="menssage">GUILHERME SANT'ANA</span> <br>
+                        <span class="message">GUILHERME SANT'ANA</span> <br>
                         FRONTEND DEVELOPER<br>
                     </h1>
+                    
                     <p class="home__description">
-                        I'm an Information Systems student at the University Center of Rio São Francisco (UNIRIOS), I live in Delmiro Gouveia and I'm 18 years old.
+                        I'm an Information Systems student at the University Center of Rio São Francisco (UNIRIOS), based in Delmiro Gouveia.
                     </p>
-                    <div class="home__buttons">
-                        <a href="https://github.com/Guilhermesttt" target="_blank" class="button">
-                            <span>
-                                <i class="ri-arrow-right-line"></i>
-                            </span>
-                            GO TO GITHUB
-                        </a>
-                    </div>
+
+                    <a href="https://github.com/Guilhermesttt" class="cta-button" target="_blank" rel="noopener noreferrer">
+                        <button class="animated-button">
+                            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                            </svg>
+                            <span class="text">Visit My GitHub</span>
+                            <span class="circle"></span>
+                            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                            </svg>
+                        </button>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section class="new section" id="new">
-            <div class="new__container container grid">
-                <div class="new__data">
-                    <h2 class="section__title">
-                        SOME OF MY <br> PROJECTS
-                    </h2>
-                    <p class="new__description">
-                        I'm a passionate front-end developer with solid experience in creating dynamic and responsive user interfaces. <br> I constantly strive to find innovative solutions to design and development challenges.
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <div class="projects__container container">
+                <div class="projects__header">
+                    <h2 class="section__title">SOME OF MY PROJECTS</h2>
+                    <p class="projects__description">
+                        I'm a passionate front-end developer with solid experience in creating dynamic and responsive user interfaces. I constantly strive to find innovative solutions to design and development challenges.
                     </p>
                 </div>
-                <div class="new__content grid">
-                    <article class="new__card">
-                        <img src="assets/img/Foto Portfolio 5.png" alt="Apple Clone Website" class="new__img">
-                        <a href="https://guilhermesttt.github.io/Site-iPhone/" target="_blank"><h2 class="new__title"><br> Apple Clone Website</h2></a>
+                
+                <div class="projects__grid">
+                    <article class="project__card">
+                        <img src="assets/img/Foto Portfolio 5.png" alt="Apple Clone Website" class="project__img" loading="lazy">
+                        <div class="project__content">
+                            <h3 class="project__title">Apple Clone Website</h3>
+                            <div class="tech-icons">
+                                <i class="fab fa-html5" title="HTML5" aria-hidden="true"></i>
+                                <i class="fab fa-css3-alt" title="CSS3" aria-hidden="true"></i>
+                                <i class="fab fa-js" title="JavaScript" aria-hidden="true"></i>
+                            </div>
+                            <a href="https://guilhermesttt.github.io/Site-iPhone/" class="project__link" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
                     </article>
-                    <article class="new__card">
-                        <img src="assets/img/Foto Portfolio 4.png" alt="The Last of Us Website" class="new__img">
-                        <a href="https://guilhermesttt.github.io/The-Last-of-Us/" target="_blank"><h2 class="new__title">The Last of Us Website</h2></a>
+                    
+                    <article class="project__card">
+                        <img src="assets/img/Foto Portfolio 4.png" alt="The Last of Us Website" class="project__img" loading="lazy">
+                        <div class="project__content">
+                            <h3 class="project__title">The Last of Us Website</h3>
+                            <div class="tech-icons">
+                                <i class="fab fa-html5" title="HTML5" aria-hidden="true"></i>
+                                <i class="fab fa-css3-alt" title="CSS3" aria-hidden="true"></i>
+                                <i class="fab fa-js" title="JavaScript" aria-hidden="true"></i>
+                            </div>
+                            <a href="https://guilhermesttt.github.io/The-Last-of-Us/" class="project__link" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
                     </article>
-                    <article class="new__card">
-                        <img src="assets/img/Foto Portfolio.png" alt="Deftones Website Clone" class="new__img">
-                        <a href="https://guilhermesttt.github.io/Deftones-Website/" target="_blank"><h2 class="new__title">Deftones Website Clone</h2></a>
+                    
+                    <article class="project__card">
+                        <img src="assets/img/Foto Portfolio.png" alt="Deftones Website Clone" class="project__img" loading="lazy">
+                        <div class="project__content">
+                            <h3 class="project__title">Deftones Website Clone</h3>
+                            <div class="tech-icons">
+                                <i class="fab fa-html5" title="HTML5" aria-hidden="true"></i>
+                                <i class="fab fa-css3-alt" title="CSS3" aria-hidden="true"></i>
+                                <i class="fab fa-js" title="JavaScript" aria-hidden="true"></i>
+                            </div>
+                            <a href="https://guilhermesttt.github.io/Deftones-Website/" class="project__link" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
                     </article>
-                    <article class="new__card">
-                        <img src="assets/img/Foto Portfolio 2.png" alt="Raissa Sant'Ana Advogacia" class="new__img">
-                        <a href="https://www.raissasantanaadv.com/" target="_blank"><h2 class="new__title">Raissa Sant'Ana Advogacia</h2></a>
+                    
+                    <article class="project__card">
+                        <img src="assets/img/Foto Portfolio 2.png" alt="Raissa Sant'Ana Advogacia" class="project__img" loading="lazy">
+                        <div class="project__content">
+                            <h3 class="project__title">Raissa Sant'Ana Advogacia</h3>
+                            <div class="tech-icons">
+                                <i class="fab fa-html5" title="HTML5" aria-hidden="true"></i>
+                                <i class="fab fa-css3-alt" title="CSS3" aria-hidden="true"></i>
+                                <i class="fab fa-js" title="JavaScript" aria-hidden="true"></i>
+                            </div>
+                            <a href="https://www.raissasantanaadv.com/" class="project__link" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
                     </article>
-                    <article class="new__card">
-                        <img src="assets/img/Foto Portfolio 3.png" alt="CalculeMed" class="new__img">
-                        <a href="https://guilhermesttt.github.io/CalculeMed-Enfermagem/" target="_blank"><h2 class="new__title">CalculeMed</h2></a>
+                    
+                    <article class="project__card">
+                        <img src="assets/img/Foto Portfolio 3.png" alt="CalculeMed" class="project__img" loading="lazy">
+                        <div class="project__content">
+                            <h3 class="project__title">CalculeMed</h3>
+                            <div class="tech-icons">
+                                <i class="fab fa-html5" title="HTML5" aria-hidden="true"></i>
+                                <i class="fab fa-css3-alt" title="CSS3" aria-hidden="true"></i>
+                                <i class="fab fa-js" title="JavaScript" aria-hidden="true"></i>
+                            </div>
+                            <a href="https://guilhermesttt.github.io/CalculeMed-Enfermagem/" class="project__link" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="shop section" id="shop">
-            <h2 class="section__title">
-                EXPERIENCES
-            </h2>
-            <div class="shop__container container grid">
-                <article class="shop__card">
-                    <img src="assets/img/HTML.png" alt="HTML" class="shop__img">
-                    <h3 class="shop__title">HTML</h3>
-                </article>
-                <article class="shop__card">
-                    <img src="assets/img/CSS.png" alt="CSS" class="shop__img">
-                    <h3 class="shop__title">CSS</h3>
-                </article>
-                <article class="shop__card">
-                    <img src="assets/img/javascript.png" alt="JavaScript" class="shop__img">
-                    <h3 class="shop__title">JAVASCRIPT</h3>
-                </article>
-                <article class="shop__card">
-                    <img src="assets/img/Python.png" alt="Python" class="shop__img">
-                    <h3 class="shop__title">PYTHON</h3>
-                </article>
+        <!-- Skills Section -->
+        <section class="skills section" id="skills">
+            <div class="container">
+                <h2 class="section__title">SKILLS & EXPERIENCE</h2>
+                
+                <div class="skills__grid">
+                    <article class="skill__card">
+                        <img src="assets/img/HTML.png" alt="HTML" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">HTML</h3>
+                        <p class="skill__level">Advanced</p>
+                    </article>
+                    
+                    <article class="skill__card">
+                        <img src="assets/img/CSS.png" alt="CSS" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">CSS</h3>
+                        <p class="skill__level">Advanced</p>
+                    </article>
+                    
+                    <article class="skill__card">
+                        <img src="assets/img/javascript.png" alt="JavaScript" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">JavaScript</h3>
+                        <p class="skill__level">Intermediate</p>
+                    </article>
+                    
+                    <article class="skill__card">
+                        <img src="assets/img/Python.png" alt="Python" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">Python</h3>
+                        <p class="skill__level">Basic</p>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section class="care section" id="care">
-            <h2 class="section__title">
-                A LITTLE BIT ABOUT ME
-            </h2>
+        <!-- About Section -->
+        <section class="about section" id="about">
             <div class="about__container container grid">
-                <img src="assets/img/Foto.png" alt="Guilherme Sant'ana" class="about__img">
-                <ul class="about__list">
-                    <li class="about__item">
-                        <i class="ri-user-fill"></i>
-                        <p>
-                            My full name is Guilherme Lima de Sant'ana. Although I'm deeply involved with codes and algorithms, my passion goes beyond the digital world.
-                        </p>
-                    </li>
-                </ul>
-                <ul class="about__list">
-                    <li class="about__item">
-                        <i class="ri-basketball-line"></i>
-                        <p>
-                            In my spare time, I play basketball, facing challenges both on the court and in my academic life.
-                        </p>
-                    </li>
-                </ul>
-                <ul class="about__list">
-                    <li class="about__item">
-                        <i class="ri-music-2-fill"></i>
-                        <p>
-                            Outside the classroom and the sports field, I connect with my musical soul, with a guitar or acoustic guitar in my hands, unraveling chords and rhythms, transforming my creative energy into captivating melodies.
-                        </p>
-                    </li>
-                </ul>
+                <img src="assets/img/Foto.png" alt="Guilherme Sant'ana" class="about__img" loading="lazy">
+                
+                <div class="about__content">
+                    <h2 class="section__title">ABOUT ME</h2>
+                    
+                    <ul class="about__list">
+                        <li class="about__item">
+                            <i class="ri-user-fill" aria-hidden="true"></i>
+                            <div>
+                                <h3>Personal</h3>
+                                <p>My full name is Guilherme Lima de Sant'ana. Although I'm deeply involved with codes and algorithms, my passion goes beyond the digital world.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="about__item">
+                            <i class="ri-basketball-line" aria-hidden="true"></i>
+                            <div>
+                                <h3>Sports</h3>
+                                <p>In my spare time, I play basketball, facing challenges both on the court and in my academic life.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="about__item">
+                            <i class="ri-music-2-fill" aria-hidden="true"></i>
+                            <div>
+                                <h3>Music</h3>
+                                <p>Outside the classroom and the sports field, I connect with my musical soul, with a guitar or acoustic guitar in my hands, unraveling chords and rhythms, transforming my creative energy into captivating melodies.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section class="contact section" id="contact">
-            <h2 class="section__title">
-                ARE YOU INTERESTED?
-            </h2>
             <div class="contact__container container grid">
-                <img src="assets/img/foto contato.png" alt="Contact Image" class="contact__img">
+                <img src="assets/img/foto contato.png" alt="Contact Image" class="contact__img" loading="lazy">
+                
                 <div class="contact__content">
-                    <h3 class="contact__title">Contact me</h3>
-                    <div class="contact__social">
-                        <a href="https://wa.me/5582981159207?text=Ol%C3%A1%2C+fui+direcionado+pelo+seu+portf%C3%B3lio" target="_blank">
-                            <i class="ri-whatsapp-line"></i>
-                        </a>
-                        <a href="https://www.instagram.com/guilhermesttt.dev_/" target="_blank">
-                            <i class="ri-instagram-line"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/guilherme-lima-de-sant-ana-b243aa359/" target="_blank">
-                            <i class="ri-linkedin-box-line"></i>
-                        </a>
+                    <h2 class="section__title">LET'S CONNECT</h2>
+                    <p class="contact__description">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                    
+                    <div class="contact__info">
+                        <h3 class="contact__subtitle">Contact me</h3>
+                        
+                        <div class="contact__social">
+                            <a href="https://wa.me/5582981159207?text=Ol%C3%A1%2C+fui+direcionado+pelo+seu+portf%C3%B3lio" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                                <i class="ri-whatsapp-line" aria-hidden="true"></i>
+                                <span>WhatsApp</span>
+                            </a>
+                            
+                            <a href="https://www.instagram.com/guilhermesttt.dev_/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <i class="ri-instagram-line" aria-hidden="true"></i>
+                                <span>Instagram</span>
+                            </a>
+                            
+                            <a href="https://www.linkedin.com/in/guilherme-lima-de-sant-ana-b243aa359/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="ri-linkedin-box-line" aria-hidden="true"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-        <span class="footer__copy">
-            © All Rights Reserved
-        </span>
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo" aria-label="Home">
+                        <i class="ri-cactus-line" aria-hidden="true"></i> Guilherme Sant'ana
+                    </a>
+                    <p class="footer__description">Frontend Developer creating digital experiences</p>
+                </div>
+                
+                <div class="footer__links">
+                    <h3 class="footer__title">Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__contact">
+                    <h3 class="footer__title">Get in Touch</h3>
+                    <ul>
+                        <li><i class="ri-mail-line" aria-hidden="true"></i> dev.guilhermesantana@.com</li>
+                        <li><i class="ri-phone-line" aria-hidden="true"></i> +55 82 98115-9207</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copy">&copy; <span id="year"></span> Guilherme Sant'ana. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="ri-arrow-up-line"></i>
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scrollup" id="scroll-up" aria-label="Back to top">
+        <i class="ri-arrow-up-line" aria-hidden="true"></i>
     </a>
 
+    <!-- Scripts -->
     <script src="assets/js/scrollreveal.min.js"></script>
     <script src="assets/js/script.js"></script>
+    
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Initialize AOS
+        AOS.init({
+            duration: 300,
+            delay: 0,
+            easing: 'ease-out',
+            once: true
+        });
+    </script>
 </body>
 </html>
