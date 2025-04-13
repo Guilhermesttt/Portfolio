@@ -257,21 +257,22 @@ body::before {
 
   .nav__toggle {
     display: block;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--first-color);
-    padding: 0.5rem;
-    border-radius: 50%;
+    padding: 0.6rem;
+    border-radius: 999px; /* Garante um círculo perfeito */
     transition: all var(--transition-fast);
-    background-color: rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(4px);
-    box-shadow: 0 0 10px rgba(131, 201, 74, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 8px rgba(131, 201, 74, 0.1);
   }
   
   .nav__toggle:hover {
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.3);
     transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(131, 201, 74, 0.2);
+    box-shadow: 0 0 12px rgba(131, 201, 74, 0.25);
   }
+  
   
   .nav__close {
     position: absolute;
@@ -1143,7 +1144,7 @@ body::before {
 
 .about__list{
   display: grid;
-  row-gap: 1rem;
+  row-gap: 2rem;
 }
 
 .about__item{
@@ -1329,104 +1330,103 @@ a.footer__social-links:hover{
   color: var(--first-color);
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* Telas pequenas*/
-@media screen and (max-width: 320px){
-  .container{
+/* =============== BREAKPOINTS =============== */
+
+/* Telas pequenas (até 320px) */
+@media screen and (max-width: 320px) {
+  .container {
     margin-inline: 1rem;
   }
 
-  .home_title{
+  .home_title {
     font-size: var(--h1-font-size);
-    margin-right:  1rem;
+    margin-right: 1rem;
   }
 
-  .home__buttons{
+  .home__buttons {
     flex-direction: column;
     row-gap: 1.5rem;
   }
 
-  .shop__container{
+  .shop__container {
     grid-template-columns: 160px;
     justify-content: center;
   }
 
-  .footer__content{
+  .footer__content {
     grid-template-columns: max-content;
   }
 
-  .footer__title{
+  .footer__title {
     font-size: var(--h3-font-size);
     margin-bottom: 1.5rem;
     text-align: center;
   }
 }
 
+/* Telas até 768px */
+@media screen and (max-width: 768px) {
+  .home__title {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
+  .home__name {
+    font-size: 1.8rem;
+    white-space: normal;
+    overflow: hidden;
+    text-align: center;
+    border-right: 2px solid white;
+    animation: blink-caret 0.75s step-end infinite;
+    margin-bottom: 10px;
+  }
+
+  .home__role {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .home__description {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .home__container {
+    padding: 10px;
+  }
+}
+
 /* Telas médias */
-@media screen and (min-width: 576px){
-  .home__container,
-  .new__container,
-  .about__container{
-    grid-template-columns: 400px;
-    justify-content: center;
-  }
-
-  .shop__container{
-    grid-template-columns: repeat(2, 160px);
-    justify-content: center;
-  }
-
-  .footer__content{
-    grid-template-columns: repeat(3, max-content);
-  }
-}
-
-@media screen and (min-width: 768px){
-  .home__container,
-  .new__container,
-  .about__container{
-    grid-template-columns: 400px;
-    justify-content: center;
-  }
-  .shop__container{
-    grid-template-columns: repeat(2, 160px);
-    justify-content: center;
-  }
-
-  .footer__content{
-    grid-template-columns: repeat(3, max-content);
-  }
-}
-
-@media screen and (min-width: 480px){
-  .nav__menu{
+@media screen and (min-width: 480px) {
+  .nav__menu {
     width: 50%;
   }
 
-  .new__content{
+  .new__content {
     grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 16rem;
     column-gap: 4rem;
+    margin-bottom: 16rem;
   }
+
   .new__card:nth-child(odd) {
     rotate: -1deg;
   }
-  
+
   .new__card:nth-child(even) {
     rotate: 1deg;
   }
 
-  .shop__container{
-    grid-template-columns: repeat(2, 230px, center);
+  .shop__container {
+    grid-template-columns: repeat(2, 230px);
     margin-bottom: 5rem;
   }
 
-  .footer__container{
+  .footer__container {
     grid-template-columns: repeat(2, max-content);
     justify-content: space-between;
   }
 
-  /* About and Contact sections side by side on desktop */
   .about__container,
   .contact__container {
     grid-template-columns: repeat(2, 1fr);
@@ -1443,107 +1443,122 @@ a.footer__social-links:hover{
   }
 }
 
+@media screen and (min-width: 576px),
+       screen and (min-width: 768px) {
+  .home__container,
+  .new__container,
+  .about__container {
+    grid-template-columns: 400px;
+    justify-content: center;
+  }
 
-/* Telas grandes*/
-@media screen and (min-width: 1150px){
-  .container{
+  .shop__container {
+    grid-template-columns: repeat(2, 160px);
+    justify-content: center;
+  }
+
+  .footer__content {
+    grid-template-columns: repeat(3, max-content);
+  }
+}
+
+/* Telas grandes */
+@media screen and (min-width: 1150px) {
+  .container {
     margin-inline: auto;
   }
-  
-  .section{
-    padding-bottom: 7rem 2rem;
+
+  .section {
+    padding: 7rem 2rem;
   }
 
-  .section__title{
+  .section__title {
     margin-bottom: 1.5rem;
   }
 
-  .nav{
-    height: calc(var(--header-height));
+  .nav {
+    height: var(--header-height);
   }
 
   .nav__toggle,
-  .nav__close{
+  .nav__close {
     display: none;
   }
 
-  .nav__logo i{
+  .nav__logo i {
     font-size: 1.5rem;
   }
 
-  .nav__menu{
+  .nav__menu {
     width: initial;
   }
 
-  .nav__list{
+  .nav__list {
     flex-direction: row;
     column-gap: 3.5rem;
   }
 
-  .nav__actions{
+  .nav__actions {
     font-size: 1.5rem;
     column-gap: 1rem;
   }
 
-  .home__title{
+  .home__title {
     margin-top: 10rem;
   }
 
-  .home__container{
+  .home__container {
     grid-template-columns: 480px 535px;
     align-items: center;
     column-gap: 4rem;
   }
 
-  .home__img{
+  .home__img {
     width: 480px;
     margin-left: -10rem;
   }
 
-  .home__data{
+  .home__data {
     text-align: initial;
   }
 
-  .home__description{
+  .home__description {
     margin-bottom: 4.5rem;
   }
 
-  .home__buttons{
+  .home__buttons {
     justify-content: initial;
     column-gap: 1.5rem;
   }
 
-  .new__container{
+  .new__container {
     margin-top: 20rem;
     grid-template-columns: 412px 490px;
     align-items: center;
     column-gap: 7.5rem;
   }
 
-  .new__data{
+  .new__data {
     text-align: left;
-    margin-bottom: 89rem;
     max-width: 100%;
   }
 
-  .new__data .section__title{
+  .new__data .section__title {
     text-align: left;
   }
 
-  .new__description
-  {
+  .new__description {
     margin-bottom: 2rem;
     font-size: var(--h3-font-size);
     line-height: 1.5;
   }
-    
 
-  .new__content{
+  .new__content {
     margin-top: -10rem;
     row-gap: 17rem;
   }
 
-  .new__title{
+  .new__title {
     font-size: var(--h3-font-size);
   }
 
@@ -1553,66 +1568,62 @@ a.footer__social-links:hover{
     padding-top: 7.5rem;
     position: relative;
   }
-  
+
   .shop__card {
     padding: 10.5rem 1.5rem 2rem;
     border-radius: 1.5rem;
     position: relative;
   }
-  
+
   .shop__img {
     width: 210px;
     top: -5.5rem;
   }
-  
+
   .shop__title {
     font-size: var(--h3-font-size);
     margin-top: -9px;
   }
-  
+
   .shop__price {
     font-size: var(--h2-font-size);
   }
-  
+
   .shop__button {
     right: 1.5rem;
     bottom: 2rem;
     font-size: 1.5rem;
   }
-  
+
   .about__container {
     column-gap: 8rem;
     padding-top: 8rem;
-    align-items: center;
     margin-bottom: 10rem;
   }
-  
-  .about__img {
+
+  .about__img,
+  .contact__img {
     width: 350px;
   }
-  
+
   .contact__container {
     column-gap: 8rem;
     padding-top: 8rem;
   }
-  
-  .contact__img {
-    width: 350px;
-  }
-  
+
   .footer__logo {
     margin-bottom: 1.5rem;
   }
-  
+
   .footer__logo i {
     font-size: 2rem;
   }
-  
+
   .footer__social {
     column-gap: 1rem;
   }
 
-  .footer__title{
+  .footer__title {
     font-size: var(--h3-font-size);
     margin-bottom: 1.5rem;
   }
@@ -1620,37 +1631,4 @@ a.footer__social-links:hover{
   .scrollup {
     right: 3rem;
   }
-}
-
-/* Ajustes para dispositivos móveis */
-@media screen and (max-width: 768px) {
-    .home__title {
-        font-size: 2rem; /* Reduz o tamanho do título */
-        margin-bottom: 5px; /* Ajusta o espaçamento abaixo do título */
-    }
-
-    .home__name {
-        font-size: 1.8rem; /* Reduz o tamanho do texto do nome */
-        white-space: normal; /* Permite que o texto quebre em várias linhas */
-        overflow: hidden; /* Esconde o texto que ultrapassa o contêiner */
-        text-align: center; /* Centraliza o texto */
-        border-right: 2px solid white; /* Mantém o cursor visível */
-        animation: blink-caret 0.75s step-end infinite; /* Mantém a animação do cursor */
-        margin-bottom: 10px; /* Espaçamento adequado */
-    }
-
-    .home__role {
-        font-size: 1.5rem; /* Reduz o tamanho do texto do papel */
-        color: white; /* Mantém a cor do texto */
-        margin-bottom: 10px; /* Ajusta o espaçamento abaixo do papel */
-    }
-
-    .home__description {
-        font-size: 0.9rem; /* Ajusta o tamanho da descrição */
-        margin-bottom: 15px; /* Ajusta o espaçamento abaixo da descrição */
-    }
-
-    .home__container {
-        padding: 10px; /* Reduz o espaçamento interno do contêiner */
-    }
 }

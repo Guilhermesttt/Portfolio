@@ -4,62 +4,75 @@ const navToggle = document.getElementById('nav-toggle');
 const navClose = document.getElementById('nav-close');
 const navLinks = document.querySelectorAll('.nav__link');
 const header = document.getElementById('header');
-const scrollUpButton = document.getElementById('scroll-up');
+const scrollUpBtn = document.getElementById('scroll-up');
 const sections = document.querySelectorAll('section[id]');
 const loader = document.getElementById('loading-overlay');
 
-/*=============== MENU SHOW/HIDE ===============*/
-navToggle?.addEventListener('click', () => navMenu?.classList.add('show-menu'));
-navClose?.addEventListener('click', () => navMenu?.classList.remove('show-menu'));
+// Sons
+const openSound = new Audio('../assets/Sounds/Open.mp3');
+const closeSound = new Audio('../assets/Sounds/Close.mp3');
 
-/*=============== CLOSE MENU ON LINK CLICK ===============*/
-navLinks.forEach(link => 
-    link.addEventListener('click', () => navMenu?.classList.remove('show-menu'))
-);
+/*=============== MENU SHOW/HIDE COM SOM ===============*/
+navToggle?.addEventListener('click', () => {
+    navMenu?.classList.add('show-menu');
+    openSound.currentTime = 0.5;
+    openSound.play();
+  });
+  
+  navClose?.addEventListener('click', () => {
+    navMenu?.classList.remove('show-menu');
+    closeSound.currentTime = 0.4;
+    closeSound.play();
+  });   
 
-/*=============== HEADER BLUR ON SCROLL ===============*/
-const blurHeader = () => {
-    header?.classList.toggle('blur-header', window.scrollY >= 50);
+/*=============== FECHAR MENU AO CLICAR EM LINK ===============*/
+navLinks.forEach(link =>
+    link.addEventListener('click', () => {
+      navMenu?.classList.remove('show-menu');
+      closeSound.currentTime = 0.4  ;
+      closeSound.play();
+    })
+  );
+
+/*=============== FUNÇÕES DE SCROLL ===============*/
+const onScroll = () => {
+  const scrollY = window.scrollY;
+
+  // Header blur
+  header?.classList.toggle('blur-header', scrollY >= 50);
+
+  // Botão "scroll-up"
+  scrollUpBtn?.classList.toggle('show-scroll', scrollY >= 350);
+
+  // Ativar link de seção
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 58;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+    const navLink = document.querySelector(`.nav__link[href*="${sectionId}"]`);
+
+    navLink?.classList.toggle(
+      'active-link',
+      scrollY > sectionTop && scrollY <= sectionTop + sectionHeight
+    );
+  });
 };
 
-/*=============== SHOW SCROLL-UP BUTTON ===============*/
-const scrollUp = () => {
-    scrollUpButton?.classList.toggle('show-scroll', window.scrollY >= 350);
-};
-
-/*=============== ACTIVE LINK BASED ON SECTION ===============*/
-const scrollActive = () => {
-    const scrollY = window.scrollY;
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 58;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav__link[href*="${sectionId}"]`);
-
-        navLink?.classList.toggle('active-link', scrollY > sectionTop && scrollY <= sectionTop + sectionHeight);
-    });
-};
-
-/*=============== PAGE LOADER ===============*/
+/*=============== ESCONDER LOADER AO CARREGAR PÁGINA ===============*/
 window.addEventListener('load', () => loader?.classList.add('hide'));
 
-/*=============== SCROLL EVENTS ===============*/
-window.addEventListener('scroll', () => {
-    blurHeader();
-    scrollUp();
-    scrollActive();
-});
+/*=============== EVENTO DE SCROLL ===============*/
+window.addEventListener('scroll', onScroll);
 
-/*=============== SCROLLREVEAL ANIMATION ===============*/
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2500,
-    delay: 300,
+/*=============== SCROLLREVEAL ANIMAÇÕES ===============*/
+ScrollReveal().reveal('.home__img, .new__data, .about__img, .contact__content, .footer', {
+  origin: 'top',
+  distance: '60px',
+  duration: 2500,
+  delay: 300,
 });
+ScrollReveal().reveal('.about__list, .contact__img', { delay: 500 });
+ScrollReveal().reveal('.new__card', { delay: 500, interval: 100 });
+ScrollReveal().reveal('.shop__card', { interval: 100 });
 
-sr.reveal('.home__img, .new__data, .about__img, .contact__content, .footer');
-sr.reveal('.about__list, .contact__img', { delay: 500 });
-sr.reveal('.new__card', { delay: 500, interval: 100 });
-sr.reveal('.shop__card', { interval: 100 });
+
