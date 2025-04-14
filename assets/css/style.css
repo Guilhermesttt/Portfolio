@@ -1130,33 +1130,49 @@ body::before {
 }
 
 /*=============== ABOUT ===============*/
-.about__container{
+/* Ajuste no container da seção sobre */
+.about__container {
+  display: flex;
+  align-items: center; /* Alinha os itens verticalmente no centro */
+  gap: 2rem; /* Espaçamento entre a imagem e os textos */
   padding-top: 2rem;
-  row-gap: 2rem;
+  flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
 }
 
+/* Ajuste na imagem sobre */
 .about__img {
   width: 270px;
+  height: auto; /* Garantir proporção correta */
   filter: drop-shadow(var(--shadow-img));
   justify-self: center;
   margin-bottom: 1.5rem;
+  border-radius: 10px; /* Borda arredondada para a imagem */
+  flex-shrink: 0; /* Impede que a imagem encolha em telas pequenas */
 }
 
-.about__list{
-  display: grid;
-  row-gap: 2rem;
-}
-
-.about__item{
+/* Ajuste na lista de itens sobre */
+.about__list {
   display: flex;
-  column-gap: .5rem;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem; /* Espaço entre os itens */
+  max-width: 600px; /* Limita a largura para uma boa leitura */
+  flex-grow: 1; /* Faz com que o texto ocupe o espaço restante */
 }
 
-.about__item i{
+/* Ajuste nos itens da lista */
+.about__item {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 0.5rem;
+}
+
+/* Estilo para os ícones dentro dos itens */
+.about__item i {
   font-size: 1.5rem;
   color: var(--first-color);
+  margin-top: 3px; /* Alinha os ícones com o texto */
 }
+
 
 /*=============== CONTACT ===============*/
 .contact__container {
