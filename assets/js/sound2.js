@@ -9,10 +9,10 @@ const sections = document.querySelectorAll('section[id]');
 const loader = document.getElementById('loading-overlay');
 
 // Sons
-const openSound = new Audio('assets/Sounds/open.mp3');
-const closeSound = new Audio('assets/Sounds/close.mp3');
+const openSound = new Audio('assets/Sounds/open.ogg');
+const closeSound = new Audio('assets/Sounds/close.ogg');
 
-const scrollSound = new Audio('assets/Sounds/backtotop.mp3'); 
+const scrollSound = new Audio('assets/Sounds/backtotop.ogg'); 
 
 /*=============== MENU SHOW/HIDE COM SOM ===============*/
 navToggle?.addEventListener('click', () => {
