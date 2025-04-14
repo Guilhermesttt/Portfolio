@@ -9,8 +9,10 @@ const sections = document.querySelectorAll('section[id]');
 const loader = document.getElementById('loading-overlay');
 
 // Sons
-const openSound = new Audio('../assets/Sounds/Open.mp3');
-const closeSound = new Audio('../assets/Sounds/Close.mp3');
+const openSound = new Audio('assets/Sounds/open.mp3');
+const closeSound = new Audio('assets/Sounds/close.mp3');
+
+const scrollSound = new Audio('assets/Sounds/backtotop.mp3'); 
 
 /*=============== MENU SHOW/HIDE COM SOM ===============*/
 navToggle?.addEventListener('click', () => {
@@ -57,6 +59,20 @@ const onScroll = () => {
     );
   });
 };
+
+/*=============== BOTÃO DE SCROLL PARA O TOPO COM SOM ===============*/
+scrollUpBtn?.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  scrollSound.currentTime = 0;
+  scrollSound.volume = 0.5;
+  scrollSound.play().catch(() => {});
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
 
 /*=============== ESCONDER LOADER AO CARREGAR PÁGINA ===============*/
 window.addEventListener('load', () => loader?.classList.add('hide'));

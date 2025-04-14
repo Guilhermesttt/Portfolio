@@ -337,11 +337,14 @@
 
    <!-- Audio Elements -->
 <audio id="hoverSound" preload="auto">
-    <source src="assets/sounds/Hover.mp3" type="audio/mpeg">
+    <source src="assets/sounds/hover.mp3" type="audio/mpeg">
 </audio>
-<audio id="clickSound" preload="auto">
-    <source src="assets/sounds/Back to top.mp3" type="audio/mpeg">
-</audio>
+
+<audio id="backToTopSound" preload="auto">
+    <source src="assets/sounds/backtotop.mp3" type="audio/mpeg">
+  </audio>
+  
+  
 
     <!-- Scripts -->
     <script src="assets/js/scrollreveal.min.js"></script>
@@ -349,21 +352,11 @@
     <script src="assets/js/sound.js"></script>
     
     
-    <script>
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
-        // Initialize AOS
-        AOS.init({
-            duration: 300,
-            delay: 0,
-            easing: 'ease-out',
-            once: true
-        });
-    </script>
-
-
-      
+ <!-- AOS Library -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>   
   </script>
 
   

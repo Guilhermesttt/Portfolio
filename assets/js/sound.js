@@ -1,86 +1,79 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Elementos de áudio
-  const hoverSound = document.getElementById('hoverSound');
-  const clickSound = document.getElementById('clickSound');
-  const scrollToTopBtn = document.getElementById('scroll-up');
+  // 🎵 Sons de hover e clique
+  const hoverSound = new Audio('assets/Sounds/hover.mp3');
+  const clickSound = new Audio('assets/Sounds/click.mp3'); // Som de clique
 
-  // Variável de controle
+  hoverSound.preload = 'auto';
+  clickSound.preload = 'auto';
+
   let userInteracted = false;
 
-  // Função de ativação de áudio
+  // ⚙️ Inicializa os áudios após primeira interação
   function initAudio() {
     userInteracted = true;
 
     [hoverSound, clickSound].forEach(sound => {
-      if (!sound) return;
       sound.volume = 0;
-      sound.play()
-        .then(() => {
-          sound.pause();
-          sound.currentTime = 0;
-        })
-        .catch(e => console.log("Pré-carregamento de áudio falhou:", e));
+      sound.play().then(() => {
+        sound.pause();
+        sound.currentTime = 0;
+      }).catch(e => console.log("Pré-carregamento de áudio falhou:", e));
     });
 
-    // Remove os ouvintes após a primeira ativação
     ['click', 'mousedown', 'touchstart', 'keydown'].forEach(evt => {
       document.removeEventListener(evt, initAudio);
     });
   }
 
-  // Adiciona múltiplos eventos para liberar o som após qualquer interação
+  // Escutar primeira interação
   ['click', 'mousedown', 'touchstart', 'keydown'].forEach(evt => {
     document.addEventListener(evt, initAudio, { once: true });
   });
 
-  // Botão de scroll para o topo com som
-  if (scrollToTopBtn) {
-    scrollToTopBtn.addEventListener('click', function (e) {
-      if (!userInteracted) return;
+  let hoverTimeout;
 
-      e.preventDefault();
-
-      // Toca o som de clique
-      if (clickSound) {
-        clickSound.currentTime = 0;
-        clickSound.volume = 0.3;
-        clickSound.play().catch(e => console.log("Falha ao reproduzir som de clique:", e));
-      }
-
-      // Scroll suave
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+  // 🔁 Função para aplicar som de hover
+  function aplicarHover(elements) {
+    elements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if (!userInteracted) return;
+        clearTimeout(hoverTimeout);
+        hoverSound.currentTime = 0;
+        hoverSound.volume = 0.2;
+        hoverSound.play().catch(e => console.log("Erro ao tocar hoverSound:", e));
       });
 
-      // Pequeno delay opcional
-      setTimeout(() => {
-        window.location.href = '#';
-      }, 100);
+      el.addEventListener('mouseleave', () => {
+        hoverTimeout = setTimeout(() => {
+          hoverSound.pause();
+          hoverSound.currentTime = 0;
+        }, 100);
+      });
     });
   }
 
-  // Sons nos cards de habilidade
-  const skillCards = document.querySelectorAll('.skill__card');
-  let isPlaying = false;
-
-  skillCards.forEach(card => {
-    card.addEventListener('mouseenter', function () {
-      if (!userInteracted || isPlaying || !hoverSound) return;
-
-      hoverSound.currentTime = 0;
-      hoverSound.volume = 0.2;
-      hoverSound.play()
-        .then(() => { isPlaying = true; })
-        .catch(e => console.log("Falha ao reproduzir som de hover:", e));
+  // 🔁 Função para aplicar som de clique
+  function aplicarClick(elements) {
+    elements.forEach(el => {
+      el.addEventListener('click', () => {
+        if (!userInteracted) return;
+        clickSound.currentTime = 0;
+        clickSound.volume = 0.4;
+        clickSound.play().catch(e => console.log("Erro ao tocar clickSound:", e));
+      });
     });
+  }
 
-    card.addEventListener('mouseleave', function () {
-      if (isPlaying && hoverSound) {
-        hoverSound.pause();
-        hoverSound.currentTime = 0;
-        isPlaying = false;
-      }
-    });
-  });
+  // ✅ Aplica som de hover a tudo
+  aplicarHover(document.querySelectorAll('.skill__card'));
+  aplicarHover(document.querySelectorAll('.contact__social a'));
+  aplicarHover(document.querySelectorAll('.project__card'));
+  aplicarHover(document.querySelectorAll('.animated-button'));
+
+  // ✅ Som de clique apenas onde você quer
+  aplicarClick(document.querySelectorAll('.contact__social a'));
+  aplicarClick(document.querySelectorAll('.animated-button'));
+  // ✅ Som de clique nos links de projeto
+aplicarClick(document.querySelectorAll('.project__link'));
+
 });
