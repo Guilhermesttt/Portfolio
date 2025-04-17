@@ -16,7 +16,7 @@ Este projeto foi desenvolvido para apresentar alguns dos meus trabalhos como **d
 - Navegação clara e objetiva
 
 ### 🔗 Acesse  
-Você pode acessar o projeto diretamente por [aqui](https://portfolio-hip9stlj6-guilhermesttts-projects.vercel.app/).
+Você pode acessar o projeto diretamente por [aqui](https://guilhermesttt.github.io/Portfolio/#projects).
 
 ---
 
