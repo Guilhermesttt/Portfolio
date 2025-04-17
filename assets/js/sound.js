@@ -77,3 +77,12 @@ document.addEventListener('DOMContentLoaded', function () {
 aplicarClick(document.querySelectorAll('.project__link'));
 
 });
+
+hoverSound.addEventListener('error', () => {
+  console.warn('hover.mp3 não pôde ser carregado.');
+});
+
+clickSound.addEventListener('error', () => {
+  console.warn('click.mp3 não pôde ser carregado.');
+});
+
