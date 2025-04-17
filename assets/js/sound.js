@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   // 🎵 Sons de hover e clique
-  const hoverSound = new Audio('assets/Sounds/hover.mp3'); // Som de hover
+  const hoverSound = new Audio('assets/Sounds/hover.mp3');
   const clickSound = new Audio('assets/Sounds/click.mp3'); // Som de clique
 
   hoverSound.preload = 'auto';
