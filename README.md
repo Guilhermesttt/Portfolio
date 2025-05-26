@@ -16,7 +16,7 @@ Este projeto foi desenvolvido para apresentar alguns dos meus trabalhos como **d
 - Navegação clara e objetiva
 
 ### 🔗 Acesse  
-Você pode acessar o projeto diretamente por [aqui](https://guilhermesttt.github.io/Portfolio/#projects).
+Você pode acessar o projeto diretamente por [aqui](https://guilhermesttt.github.io/Portfolio/).
 
 ---
 
@@ -38,7 +38,7 @@ This project was developed to showcase some of my work as a **web developer**, h
 - Clean and straightforward navigation
 
 ### 🔗 Live Version  
-You can view the project [here](https://guilhermesttt.github.io/Portfolio/#).
+You can view the project [here](https://guilhermesttt.github.io/).
 
 ---
 
