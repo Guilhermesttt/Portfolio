@@ -827,25 +827,37 @@ body::before {
   
 /*=============== PROJECTS SECTION - UPDATED ICONS ===============*/
 .tech-icons {
-  align-items: left;
-  gap: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-bottom: 1.5rem;
   font-size: 1.6rem;
 }
 
 /* Estado normal dos ícones */
-.tech-icons i {
+.tech-icons i, .tech-icons img {
   transition: all var(--transition-medium) ease-out;
   opacity: 0.8;
   transform: scale(1);
   filter: brightness(0.8);
+  position: relative;
+}
+
+/* Padronização das imagens com os ícones */
+.tech-icons img {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 4px;
+  padding: 2px;
+  background-color: transparent;
+  transition: all var(--transition-medium) ease-out;
 }
 
 /* Efeito hover individual para cada ícone */
-.tech-icons i:hover {
+.tech-icons i:hover, .tech-icons img:hover {
   opacity: 1;
   transform: scale(1.25);
-  filter: brightness(1.2) drop-shadow(0 0 4px currentColor);
+  filter: brightness(1.2) drop-shadow(0 0 8px currentColor);
   transition: all 0.2s ease-in;
 }
 
@@ -856,6 +868,24 @@ body::before {
 .tech-icons .fa-react { color: #61dafb; } /* Azul React */
 .tech-icons .fa-node-js { color: #68a063; } /* Verde Node.js */
 
+/* Efeitos específicos para TypeScript */
+.tech-icons img[alt="TypeScript"]:hover {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  filter: brightness(1.1) drop-shadow(0 0 8px #3178c6);
+}
+
+/* Efeitos específicos para Tailwind CSS */
+.tech-icons img[alt="Tailwind CSS"]:hover {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  filter: brightness(1.1) drop-shadow(0 0 8px #06b6d4);
+}
+
 /* Efeito de pulsação sutil durante o hover */
 @keyframes pulse {
   0% { transform: scale(1); }
@@ -864,6 +894,10 @@ body::before {
 }
 
 .tech-icons i:hover {
+  animation: pulse 1.5s infinite;
+}
+
+.tech-icons img:hover {
   animation: pulse 1.5s infinite;
 }
   
