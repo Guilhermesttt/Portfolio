@@ -38,8 +38,6 @@ This project was developed to showcase some of my work as a **web developer**, h
 - Clean and straightforward navigation
 
 ### 🔗 Live Version  
-You can view the project [here](https://guilhermesttt.github.io/).
+You can view the project [here](https://devguilhermesantana.netlify.app/).
 
 ---
-
-Se quiser, posso adicionar uma seção de “Como clonar e rodar localmente” ou um “Sobre mim” também! Só dizer.
