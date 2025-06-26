@@ -16,7 +16,7 @@ Este projeto foi desenvolvido para apresentar alguns dos meus trabalhos como **d
 - Navegação clara e objetiva
 
 ### 🔗 Acesse  
-Você pode acessar o projeto diretamente por [aqui](https://guilhermesttt.github.io/Portfolio/).
+Você pode acessar o projeto diretamente por [aqui](https://devguilhermesantana.netlify.app/).
 
 ---
 
