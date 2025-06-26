@@ -38,7 +38,7 @@ This project was developed to showcase some of my work as a **web developer**, h
 - Clean and straightforward navigation
 
 ### 🔗 Live Version  
-You can view the project [here](https://guilhermesttt.github.io/).
+You can view the project [here](https://devguilhermesantana.netlify.app/).
 
 ---
 
