@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Cactus, Mail, Phone, Github, Instagram, Linkedin } from 'lucide-react';
+import { Contact as Cactus, Mail, Phone, Github, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

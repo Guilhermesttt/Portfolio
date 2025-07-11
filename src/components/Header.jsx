@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Cactus } from 'lucide-react';
+import { Menu, X, Contact as Cactus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
