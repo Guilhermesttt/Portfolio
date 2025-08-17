@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Guilherme Sant'ana, a frontend developer with skills in HTML, CSS, JavaScript, and Python">
+    <meta name="keywords" content="portfolio, frontend, developer, HTML, CSS, JavaScript">
+    <meta name="author" content="Guilherme Sant'ana">
+
+    <link rel="shortcut icon" href="assets/WEBP/icons8-portfolio-24.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/project-modal.css">
+
+    <title>Guilherme Sant'ana | Frontend Developer Portfolio</title>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <!-- Header/Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo" aria-label="Home">
+                <i class="ri-cactus-line" aria-hidden="true"></i> Guilherme Sant'ana
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#projects" class="nav__link">Projects</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">Skills</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contact</a>
+                    </li>
+                </ul>
+                
+                <button class="nav__close" id="nav-close" aria-label="Close menu">
+                    <i class="ri-close-line" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <button class="nav__toggle" id="nav-toggle" aria-label="Open menu">
+                <i class="ri-menu-line" aria-hidden="true"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main class="main" id="main-content">
+        <!-- Hero Section -->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <img src="assets/WEBP/Foto_portifolio.webp" alt="Guilherme Sant'ana" class="home__img" loading="lazy">
+                
+                <div class="home__data">
+                    <h1 class="home__title">
+                        <span class="message">GUILHERME SANT'ANA</span> <br>
+                        FRONTEND DEVELOPER<br>
+                    </h1>
+                    
+                    <p class="home__description">
+                        I'm an Information Systems student at the University Center of Rio São Francisco (UNIRIOS), based in Delmiro Gouveia.
+                    </p>
+
+                    <a href="https://github.com/Guilhermesttt" class="cta-button" target="_blank" rel="noopener noreferrer">
+                        <button class="animated-button">
+                            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                            </svg>
+                            <span class="text">Visit My GitHub</span>
+                            <span class="circle"></span>
+                            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <div class="projects__container container">
+                <div class="projects__header">
+                    <h2 class="section__title">SOME OF MY PROJECTS</h2>
+                    <p class="section__lead">A curated selection highlighting aesthetics, performance, and delightful interactions. Built with care, tuned for real devices.</p>
+                </div>
+                
+                <div class="projects__grid">
+                    <article class="project__card" data-link="https://guilhermesttt.github.io/The-Last-of-Us/">
+                        <img src="assets/WEBP/Foto Portfolio 4.webp" alt="The Last of Us Website" class="project__img" loading="lazy">
+                        <div class="project__content">
+                            <h3 class="project__title">The Last of Us Fan Website</h3>
+                            <div class="tech-icons">
+                                <i class="fab fa-html5" title="HTML5" aria-hidden="true"></i>
+                                <i class="fab fa-css3-alt" title="CSS3" aria-hidden="true"></i>
+                                <i class="fab fa-js" title="JavaScript" aria-hidden="true"></i>
+                            </div>
+                            <div class="project__hint" aria-label="Click the card to view details">
+                                <i class="ri-hand-pointer-line" aria-hidden="true"></i>
+                                <span>Click the card to view details</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="project__card" data-link="https://guilhermesttt.github.io/Deftones-Website/">
+                        <img src="assets/WEBP/Foto Portfolio.webp" alt="Deftones Website Clone" class="project__img" loading="lazy">
+                        <div class="project__content">
+                            <h3 class="project__title">Deftones Website Clone</h3>
+                            <div class="tech-icons">
+                                <i class="fab fa-html5" title="HTML5" aria-hidden="true"></i>
+                                <i class="fab fa-css3-alt" title="CSS3" aria-hidden="true"></i>
+                                <i class="fab fa-js" title="JavaScript" aria-hidden="true"></i>
+                            </div>
+                            <div class="project__hint" aria-label="Click the card to view details">
+                                <i class="ri-hand-pointer-line" aria-hidden="true"></i>
+                                <span>Click the card to view details</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="project__card" data-link="https://raissasantanadv.netlify.app/">
+                        <img src="assets/WEBP/Foto Portfolio 2.webp" alt="Raissa Sant'Ana Advocacy" class="project__img" loading="lazy">
+                        <div class="project__content">
+                            <h3 class="project__title">Raissa Sant'Ana Advocacy</h3>
+                            <div class="tech-icons">
+                                <i class="fab fa-html5" title="HTML5" aria-hidden="true"></i>
+                                <i class="fab fa-css3-alt" title="CSS3" aria-hidden="true"></i>
+                                <i class="fab fa-js" title="JavaScript" aria-hidden="true"></i>
+                            </div>
+                            <div class="project__hint" aria-label="Click the card to view details">
+                                <i class="ri-hand-pointer-line" aria-hidden="true"></i>
+                                <span>Click the card to view details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project__card" data-link="https://barbearia-premium.netlify.app/">
+                        <div class="project__sale-badge">🚨 FOR SALE</div>
+                        <img src="assets/WEBP/Foto Portfolio 11.webp" alt="Imperium Barber" class="project__img" loading="lazy">
+                        <div class="project__content">
+                            <h3 class="project__title">Imperium Barber - Online Booking</h3>
+                            <div class="tech-icons">
+                                <i class="fab fa-html5" title="HTML5" aria-hidden="true"></i>
+                                <i class="fab fa-css3-alt" title="CSS3" aria-hidden="true"></i>
+                                <i class="fab fa-js" title="JavaScript" aria-hidden="true"></i>
+                            </div>
+                            <div class="project__hint" aria-label="Click the card to view details">
+                                <i class="ri-hand-pointer-line" aria-hidden="true"></i>
+                                <span>Click the card to view details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project__card" data-link="https://gastropass-gourmetclub.netlify.app/">
+                        <img src="assets/WEBP/Foto Portfolio 9.webp" alt="GastroPass" class="project__img" loading="lazy">
+                        <div class="project__content">
+                            <h3 class="project__title">GastroPass - Gourmet Club</h3>
+                            <div class="tech-icons">
+                                <img src="assets/WEBP/React.webp" title="React" loading="lazy">
+                                <img src="assets/WEBP/Tailwind.webp" title="Tailwind" loading="lazy">
+                                <img src="assets/WEBP/Node.webp" title="Node.js" loading="lazy">
+                                <img src="assets/WEBP/Firebase.webp" title="Firebase" loading="lazy">
+                            </div>
+                            <div class="project__hint" aria-label="Click the card to view details">
+                                <i class="ri-hand-pointer-line" aria-hidden="true"></i>
+                                <span>Click the card to view details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project__card" data-link="https://adm-historias-biblicas.netlify.app/">
+                        <img src="assets/WEBP/Foto Portfolio 10.webp" alt="Biblical Stories Admin Panel" class="project__img" loading="lazy">
+                        <div class="project__content">
+                            <h3 class="project__title">Biblical Stories Admin Panel</h3>
+                            <div class="tech-icons">
+                                <img src="assets/WEBP/React.webp" title="React" loading="lazy">
+                                <img src="assets/WEBP/Tailwind.webp" title="Tailwind" loading="lazy">
+                                <img src="assets/WEBP/Node.webp" title="Node.js" loading="lazy">
+                                <img src="assets/WEBP/Firebase.webp" title="Firebase" loading="lazy">
+                            </div>
+                            <div class="project__hint" aria-label="Click the card to view details">
+                                <i class="ri-hand-pointer-line" aria-hidden="true"></i>
+                                <span>Click the card to view details</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills section" id="skills">
+            <div class="container">
+                <h2 class="section__title">SKILLS & EXPERIENCE</h2>
+                
+                <div class="skills__grid">
+                    <article class="skill__card">
+                        <img src="assets/WEBP/HTML.webp" alt="HTML" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">HTML</h3>
+                        <p class="skill__level">Advanced</p>
+                    </article>
+                    
+                    <article class="skill__card">
+                        <img src="assets/WEBP/CSS.webp" alt="CSS" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">CSS</h3>
+                        <p class="skill__level">Advanced</p>
+                    </article>
+                    
+                    <article class="skill__card">
+                        <img src="assets/WEBP/javascript.webp" alt="JavaScript" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">JavaScript</h3>
+                        <p class="skill__level">Intermediate</p>
+                    </article>
+                    
+                    <article class="skill__card">
+                        <img src="assets/WEBP/Python.webp" alt="Python" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">Python</h3>
+                        <p class="skill__level">Intermediate</p>
+                    </article>
+
+                    <article class="skill__card">
+                        <img src="assets/WEBP/Node.webp" alt="Node JS" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">Node JS</h3>
+                        <p class="skill__level">Intermediate</p>
+                    </article>
+
+                    <article class="skill__card">
+                        <img src="assets/WEBP/Tailwind.webp" alt="Tailwindcss" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">Tailwind</h3>
+                        <p class="skill__level">Intermediate</p>
+                    </article>
+
+                    <article class="skill__card">
+                        <img src="assets/WEBP/Firebase.webp" alt="Firebase" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">Firebase</h3>
+                        <p class="skill__level">Basic</p>
+                    </article>
+
+                    <article class="skill__card">
+                        <img src="assets/WEBP/Figma.webp" alt="Figma" class="skill__img" loading="lazy">
+                        <h3 class="skill__title">Figma</h3>
+                        <p class="skill__level">Advanced</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="about__container container grid">
+                <img src="assets/WEBP/Foto.webp" alt="Guilherme Sant'ana" class="about__img" loading="lazy">
+                
+                <div class="about__content">
+                    <h2 class="section__title">ABOUT ME</h2>
+                    <p class="about__intro">I’m a frontend developer focused on creating immersive and accessible interfaces. I love translating ideas into delightful products, balancing performance, design, and detail.</p>
+
+                    <div class="about__chips" aria-label="Highlights">
+                        <span class="about__chip"><i class="ri-sparkling-fill" aria-hidden="true"></i> Pixel-perfect</span>
+                        <span class="about__chip"><i class="ri-shield-check-line" aria-hidden="true"></i> A11y first</span>
+                        <span class="about__chip"><i class="ri-rocket-2-line" aria-hidden="true"></i> Performance</span>
+                    </div>
+
+                    <div class="about__cards">
+                        <article class="about__card">
+                            <div class="about__icon"><i class="ri-user-fill" aria-hidden="true"></i></div>
+                            <h3 class="about__card-title">Personal</h3>
+                            <p class="about__card-text">My full name is Guilherme Lima de Sant'ana. Passionate about technology, design, and continuous learning.</p>
+                        </article>
+                        <article class="about__card">
+                            <div class="about__icon"><i class="ri-basketball-line" aria-hidden="true"></i></div>
+                            <h3 class="about__card-title">Sports</h3>
+                            <p class="about__card-text">I play basketball in my free time—discipline and teamwork that I bring to code and projects.</p>
+                        </article>
+                        <article class="about__card">
+                            <div class="about__icon"><i class="ri-music-2-fill" aria-hidden="true"></i></div>
+                            <h3 class="about__card-title">Music</h3>
+                            <p class="about__card-text">Guitar always nearby. Music sharpens my focus and creativity to craft better experiences.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="contact__container container grid">
+                <img src="assets/WEBP/foto contato.webp" alt="Contact Image" class="contact__img" loading="lazy">
+                
+                <div class="contact__content">
+                    <h2 class="section__title">LET'S CONNECT</h2>
+                    <p class="contact__description">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                    
+                    <div class="contact__info">
+                        <h3 class="contact__subtitle">Contact me</h3>
+                        
+                        <div class="contact__social">
+                            <a href="https://wa.me/5582981159207?text=Hello%2C+I+was+referred+by+your+portfolio" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                                <i class="ri-whatsapp-line" aria-hidden="true"></i>
+                                <span>WhatsApp</span>
+                            </a>
+                            
+                            <a href="https://www.instagram.com/guilhermesantana.dev_/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <i class="ri-instagram-line" aria-hidden="true"></i>
+                                <span>Instagram</span>
+                            </a>
+                            
+                            <a href="https://www.linkedin.com/in/guilherme-lima-de-sant-ana-b243aa359/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="ri-linkedin-box-line" aria-hidden="true"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Modal Structure -->
+    <div class="project-overlay" id="project-overlay">
+        <div class="project-modal">
+            <button class="project-modal__close" id="project-modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="project-modal__header">
+                <div class="project-modal__header-content">
+                    <h2 id="project-modal-title">The Last of Us Fan Website</h2>
+                    <div class="project-modal__icons">
+                        <i class="fab fa-html5"></i>
+                        <i class="fab fa-css3-alt"></i>
+                        <i class="fab fa-js"></i>
+                        <i class="fab fa-react"></i>
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-modal__body">
+                <img id="project-modal-image" src="https://images.unsplash.com/photo-1620336655052-b57986f5a26a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="The Last of Us Project">
+                
+                <p id="project-modal-description">
+                    A website dedicated to The Last of Us franchise, featuring information about characters, story, and an image gallery. Built with React and Node.js, including a user authentication system.
+                </p>
+                
+                <div class="project-details">
+                    <div class="project-detail-group">
+                        <h4>Features</h4>
+                        <ul class="project-detail-list">
+                            <li class="project-detail-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="project-detail-text">User authentication system</span>
+                            </li>
+                            <li class="project-detail-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="project-detail-text">Interactive character gallery</span>
+                            </li>
+                            <li class="project-detail-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="project-detail-text">Map of game locations</span>
+                            </li>
+                            <li class="project-detail-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="project-detail-text">Blog with franchise news</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-detail-group">
+                        <h4>Technologies Used</h4>
+                        <ul class="project-detail-list">
+                            <li class="project-detail-item">
+                                <i class="fab fa-react"></i>
+                                <span class="project-detail-text">React with Redux for state management</span>
+                            </li>
+                            <li class="project-detail-item">
+                                <i class="fab fa-node-js"></i>
+                                <span class="project-detail-text">Node.js with Express for the backend</span>
+                            </li>
+                            <li class="project-detail-item">
+                                <i class="fas fa-database"></i>
+                                <span class="project-detail-text">MongoDB for data storage</span>
+                            </li>
+                            <li class="project-detail-item">
+                                <i class="fas fa-paint-brush"></i>
+                                <span class="project-detail-text">Sass for advanced styling</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <a href="#" class="project-modal__flip-btn" id="project-modal-link" target="_blank" rel="noopener noreferrer">
+                    Visit Project
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo" aria-label="Home">
+                        <i class="ri-cactus-line" aria-hidden="true"></i> Guilherme Sant'ana
+                    </a>
+                    <p class="footer__description">Frontend Developer creating digital experiences</p>
+                </div>
+                
+                <div class="footer__links">
+                    <h3 class="footer__title">Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__contact">
+                    <h3 class="footer__title">Get in Touch</h3>
+                    <ul>
+                        <li><i class="ri-mail-line" aria-hidden="true"></i> dev.guilhermesantana@gmail.com</li>
+                        <li><i class="ri-phone-line" aria-hidden="true"></i> +55 82 98115-9207</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copy">&copy; <span id="year"></span> Guilherme Sant'ana. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scrollup" id="scroll-up" aria-label="Back to top">
+        <i class="ri-arrow-up-line" aria-hidden="true"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/sound.js"></script>
+    <script src="assets/js/sound2.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/project-modal.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const yearEl = document.getElementById('year');
+          if (yearEl) {
+            yearEl.textContent = new Date().getFullYear();
+          }
+      
+          // Initialize AOS
+          if (typeof AOS !== 'undefined') {
+            AOS.init({
+              duration: 300,     
+              easing: 'ease-out',
+              once: true       
+            });
+          }
+        });
+      </script>
+</body>
+</html>
